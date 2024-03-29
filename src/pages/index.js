@@ -6,13 +6,13 @@ export default function Home() {
 
       <div className="flex m-auto">
           <h2 className={`mb-3 text-5xl font-semibold`}>
-            What Da Duck!
+            What The Duck!
           </h2>
       </div>
 
       <div className="flex grid items-center justify-center m-auto gap-4 lg:grid-cols-2">
-        <Item path="/pond" title="To the pond" desc="maybe here is where you show who is coming"/>
         <Item path="/register" title="What say you?" desc="this is where you put down their responds"/>
+        <Item path="/pond" title="To the pond" desc="maybe here is where you show who is coming"/>
       </div>
 
     </Main>

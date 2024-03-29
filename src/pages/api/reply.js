@@ -6,7 +6,7 @@ export default async function handler(req, res) {
 
     const { name, reply, comment } = req.body;
     const data = JSON.stringify({ name, reply, comment });
-    const id = Date.now().json;
+    const id = Date.now()+'';
     replies.push({id, name, reply, comment});
     if (kv.set('replies', replies)) {
         console.log("Reply saved successfully", id, name);

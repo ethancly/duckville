@@ -23,9 +23,10 @@ export default function ReplyForm() {
       if (!response.ok) {
         throw new Error('Failed to save reply');
       }
-
-        // Redirect to a different page
+      router.push('/pond');
+      setTimeout(() => {
         router.push('/pond');
+      }, 1000); // redirect to /pond after 1 second
     } catch (error) {
       console.error(error);
       alert('Failed to save reply');
@@ -39,10 +40,10 @@ export default function ReplyForm() {
   return (
   <Main>
 
-        <div className="h-3/4 min-h-40em max-w-md mx-auto bg-white shadow-md rounded px-8 py-6 mb-4">
+        <div className="h-3/4 min-h-40em max-w-md mx-auto shadow-md rounded px-8 py-6 mb-4 bg-white dark:bg-gray-700 text-gray-700 dark:text-white">
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
-              <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
+              <label htmlFor="name" className="block text-sm font-bold mb-2 bg-white dark:bg-gray-700 text-gray-700 dark:text-white">
                 Name
               </label>
               <input
@@ -51,12 +52,12 @@ export default function ReplyForm() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-white dark:bg-gray-700 text-gray-700 dark:text-white"
                 placeholder="Enter your name"
               />
             </div>
             <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2">Reply</label>
+              <label className="block text-sm font-bold mb-2 bg-white dark:bg-gray-700 text-gray-700 dark:text-white">Reply</label>
               <div className="flex items-center">
                 <input
                   type="radio"
@@ -85,7 +86,7 @@ export default function ReplyForm() {
               </div>
             </div>
             <div className="mb-6">
-              <label htmlFor="comment" className="block text-gray-700 text-sm font-bold mb-2">
+              <label htmlFor="comment" className="block text-sm font-bold mb-2 bg-white dark:bg-gray-700 text-gray-700 dark:text-white">
                 Comment
               </label>
               <textarea
@@ -93,7 +94,7 @@ export default function ReplyForm() {
                 name="comment"
                 value={formData.comment}
                 onChange={handleChange}
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-white dark:bg-gray-700 text-gray-700 dark:text-white"
                 placeholder="Enter your comment"
               />
             </div>
