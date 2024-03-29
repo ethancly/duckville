@@ -12,7 +12,7 @@ export default function Pond({ replies }) {
         <div  className="absolute bottom-0" style={{left: '10vw'}}>
           <ul className="flex flex-row flex-wrap">
             {replies.map((reply) => (
-                <Duck reply={reply}/>
+                <Duck key={reply.id} reply={reply}/>
             ))}
           </ul>
         </div>
