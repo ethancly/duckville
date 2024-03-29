@@ -1,13 +1,13 @@
 import fs from 'fs';
 import path from 'path';
 
-export function getAllReplies() {
+export default function handler(req, res) {
   // Create the directory if it doesn't exist
   const dir = path.join('/tmp', 'reply');
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
   }
-  
+
   const replyFiles = fs.readdirSync(dir);
 
   const replies = replyFiles.map((file) => {
@@ -20,5 +20,5 @@ export function getAllReplies() {
     };
   });
 
-  return replies;
+  res.status(200).json(replies);
 }

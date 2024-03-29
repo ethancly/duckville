@@ -1,11 +1,28 @@
+import { useState, useEffect } from 'react';
 import Image from "next/image";
 import Main from "../../components/Main.js";
-import { getAllReplies } from '../../utils.js';
 
 import POND from "./pond.jpg"
 import DUCK from "../../components/duck-sm.png"
 
-export default function Pond({ replies }) {
+export default function Pond() {
+    const [replies, setReplies] = useState(null);
+    useEffect( () => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('/api/replies');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch data');
+                }
+                const replies = await response.json();
+                setReplies(replies);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData(); // Call the async function inside useEffect
+    }, []);
+  if (!replies) return null;
   return (
     <Main>
         <Image className="flex flex-grow w-full" style={{height: 'calc(100vh - 40px'}} src={POND}/>
@@ -35,13 +52,4 @@ function Duck({reply}) {
         </div>
       </li>
     )
-}
-
-export async function getStaticProps() {
-  const replies = getAllReplies();
-  return {
-    props: {
-      replies,
-    },
-  };
 }
