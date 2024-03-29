@@ -6,7 +6,7 @@ export default function handler(req, res) {
     const { name, reply, comment } = req.body;
 
     // Create the directory if it doesn't exist
-    const dir = path.join(process.cwd(), 'reply');
+    const dir = path.join('/tmp', 'reply');
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir);
     }
