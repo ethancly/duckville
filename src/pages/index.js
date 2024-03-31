@@ -4,15 +4,19 @@ export default function Home() {
   return (
     <Main>
 
-      <div className="flex m-auto">
+      <div className="flex flex-col m-auto">
           <h2 className={`mb-3 text-5xl font-semibold`}>
             What The Duck!
           </h2>
+          <h6 className={`mb-3 text-xl italic font-semibold`}>
+            What The Duck!
+          </h6>
       </div>
 
       <div className="flex grid items-center justify-center m-auto gap-4 lg:grid-cols-2">
         <Item path="/register" title="What say you?" desc="this is where you put down their responds"/>
         <Item path="/pond" title="To the pond" desc="maybe here is where you show who is coming"/>
+        <Item path="/agenda" title="Ducky plan" desc="what is the plan?"/>
       </div>
 
     </Main>

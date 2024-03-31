@@ -16,6 +16,7 @@ export default function Navbar() {
             <Link href="/" className="hover:cursor-pointer">Home</Link>
             <Link href="/pond">Pond</Link>
             <Link href="/register">Register</Link>
+            <Link href="/agenda">Agenda</Link>
           </div>
         </div>
       </nav>
